@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Modal } from "antd"
 import { Todo } from "./TodoList"
+import { doc, updateDoc } from "firebase/firestore"
+import { db } from "../firebase/config"
 interface ModalEditProps {
   item: Todo
   openModal: boolean
@@ -26,6 +28,10 @@ export default function ModalEdit({
         todo.id === item.id ? { ...todo, name: valueInput } : todo
       )
       setListTodo(updatedListTodo)
+      const todoRef = doc(db, "data", "NHyiI2dN93r9xBXwQQm1")
+      updateDoc(todoRef, {
+        listAnime: updatedListTodo,
+      })
       setOpenModal(false)
     }
   }

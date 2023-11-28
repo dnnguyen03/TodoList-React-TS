@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import Filter from "./Filter"
 import Todo from "./Todo"
 import ModalAdd from "./ModalAdd"
-import useFirestore from "../firebase/useFireStore"
+import useFirestore from "../firebase/useFirestore"
 export interface Todo {
   id: number
   name: string
